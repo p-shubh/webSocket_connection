@@ -33,13 +33,17 @@ func registerClient(c *gin.Context) {
 		return
 	}
 	for i := 0; i < 10; i++ {
-		time.Sleep(time.Second * 2)
-		mType, mByte, err := conn.ReadMessage()
-		fmt.Println("mByte: ", string(mByte))
-		fmt.Println("mType: ", mType)
-		fmt.Println("err: ", err)
+		time.Sleep(time.Second * 5)
+		// mType, mByte, err := conn.ReadMessage()
+		// fmt.Println("mByte: ", string(mByte))
+		// fmt.Println("mType: ", mType)
+		// fmt.Println("err: ", err)
+		res := zenquotes()
+		// res2 := zenquotes2()
 
-		conn.WriteMessage(websocket.TextMessage, []byte(fmt.Sprintf("%d", i)))
+		conn.WriteMessage(websocket.TextMessage, []byte(fmt.Sprintf("%s", res)))
+		// conn.WriteMessage(websocket.TextMessage, []byte(fmt.Sprintf("%s", res2)))
+
 	}
 	conn.Close()
 }

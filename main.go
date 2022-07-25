@@ -2,7 +2,15 @@ package main
 
 import "github.com/gin-gonic/gin"
 
+type Quotes struct {
+	Q string `json:"q"`
+	A string `json:"a"`
+	H string `json:"h"`
+}
+
 func main() {
+
+	// zenquotes()
 
 	router := gin.Default()
 	setupRouters(router)
@@ -11,5 +19,5 @@ func main() {
 }
 
 func setupRouters(c *gin.Engine) {
-	c.GET("/register",registerClient)
+	c.GET("/register", registerClient)
 }
