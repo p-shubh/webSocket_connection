@@ -39,10 +39,10 @@ func registerClient(c *gin.Context) {
 		// fmt.Println("mType: ", mType)
 		// fmt.Println("err: ", err)
 		res := zenquotes()
-		res2 := zenquotes2()
+		// res2 := zenquotes2()
 
 		conn.WriteMessage(websocket.TextMessage, []byte(fmt.Sprintf("%s", res)))
-		conn.WriteMessage(websocket.TextMessage, []byte(fmt.Sprintf("%s", res2)))
+		// conn.WriteMessage(websocket.TextMessage, []byte(fmt.Sprintf("%s", res2)))
 
 	}
 	conn.Close()
