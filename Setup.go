@@ -44,6 +44,9 @@ func registerClient(c *gin.Context) {
 		conn.WriteMessage(websocket.TextMessage, []byte(fmt.Sprintf("%s", res)))
 		// conn.WriteMessage(websocket.TextMessage, []byte(fmt.Sprintf("%s", res2)))
 
+		sms(res.Q)
+		whatsapp(res.Q)
+
 	}
 	conn.Close()
 }
