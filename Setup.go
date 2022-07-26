@@ -32,21 +32,21 @@ func registerClient(c *gin.Context) {
 		fmt.Println(msg)
 		return
 	}
-	for i := 0; i < 10; i++ {
-		time.Sleep(time.Second * 5)
-		// mType, mByte, err := conn.ReadMessage()
-		// fmt.Println("mByte: ", string(mByte))
-		// fmt.Println("mType: ", mType)
-		// fmt.Println("err: ", err)
-		res := zenquotes()
-		// res2 := zenquotes2()
+	// for i := 0; i < 10; i++ {
+	time.Sleep(time.Second * 5)
+	// mType, mByte, err := conn.ReadMessage()
+	// fmt.Println("mByte: ", string(mByte))
+	// fmt.Println("mType: ", mType)
+	// fmt.Println("err: ", err)
+	// res := zenquotes()
+	res2 := zenquotes2()
 
-		conn.WriteMessage(websocket.TextMessage, []byte(fmt.Sprintf("%s", res)))
-		// conn.WriteMessage(websocket.TextMessage, []byte(fmt.Sprintf("%s", res2)))
+	// conn.WriteMessage(websocket.TextMessage, []byte(fmt.Sprintf("%s", res)))
+	conn.WriteMessage(websocket.TextMessage, []byte(fmt.Sprintf("%s", res2)))
 
-		sms(res.Q)
-		whatsapp(res.Q)
+	sms(res2)
+	whatsapp(res2)
 
-	}
+	// }
 	conn.Close()
 }
