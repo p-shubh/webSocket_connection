@@ -17,8 +17,8 @@ func sms(Quotes string) {
 
 	//prepare payload post req body
 	data := url.Values{}
-	data.Set("To", "+917008963113")
-	data.Set("MessagingServiceSid", "dummiy1")
+	data.Set("To", "+918340535268")
+	data.Set("MessagingServiceSid", "MG8d7957cb0ce6bbfd61bffd55dea8315c")
 	data.Set("Body", Quotes)
 
 	client := &http.Client{}
@@ -55,7 +55,7 @@ func whatsapp(Quotes string) {
 
 	data := url.Values{}
 	data.Set("To", "+917008963113")
-	data.Set("MessagingServiceSid", "dummiy1")
+	data.Set("MessagingServiceSid", "MG8d7957cb0ce6bbfd61bffd55dea8315c")
 	data.Set("Body", Quotes)
 
 	client := &http.Client{}
